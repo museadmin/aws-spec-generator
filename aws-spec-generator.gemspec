@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Wrapper for awspec generate'
   spec.description   = 'Wrapper for awspec generate'
-  spec.homepage      = 'https://github.com/museadmin'
+  spec.homepage      = 'https://github.com/museadmin/aws-spec-generator'
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -20,8 +20,8 @@ Gem::Specification.new do |spec|
     spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
     spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = 'https://github.com/museadmin'
-    spec.metadata["changelog_uri"] = 'https://github.com/museadmin'
+    spec.metadata["source_code_uri"] = 'https://github.com/museadmin/aws-spec-generator'
+    spec.metadata["changelog_uri"] = 'https://github.com/museadmin/aws-spec-generator/blob/master/CHANGELOG.md'
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
