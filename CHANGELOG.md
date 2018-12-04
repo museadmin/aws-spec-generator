@@ -10,3 +10,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Ability to run awspec generator
 - Gemspec file updated to enable push to Rubygems.org
 
+## [0.1.2] - 04-12-2018
+### removed
+- Removed test files as this is tested in aws-spec-etl
