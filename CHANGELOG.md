@@ -13,3 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.2] - 04-12-2018
 ### removed
 - Removed test files as this is tested in aws-spec-etl
+
+## [0.1.3] - 04-12-2018
+### Changed 
+- relative path of spechelper require statement

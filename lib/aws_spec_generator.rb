@@ -41,7 +41,7 @@ class AwsSpecGenerator
         @output_directory + "ec2_on_#{vpc}_tests_spec.rb"
       )
       File.open(target_file, 'w') do |f|
-        f.write("require_relative '../spec_helper'\n\ncontext '#{vpc} tests', #{account}: true do\n\n")
+        f.write("require_relative '../../spec_helper'\n\ncontext '#{vpc} tests', #{account}: true do\n\n")
       end
 
       begin
@@ -63,7 +63,7 @@ class AwsSpecGenerator
         @output_directory + "elbs_on_#{vpc}_tests_spec.rb"
       )
       File.open(target_file, 'w') do |f|
-        f.write("require_relative '../spec_helper'\n\ncontext 'ELBs on"\
+        f.write("require_relative '../../spec_helper'\n\ncontext 'ELBs on"\
         " #{vpc} tests', #{account}: true do\n\n")
       end
 
@@ -86,7 +86,7 @@ class AwsSpecGenerator
         @output_directory + "security_groups_on_#{vpc}_tests_spec.rb"
       )
       File.open(target_file, 'w') do |f|
-        f.write("require_relative '../spec_helper'\n\ncontext 'Security Groups on"\
+        f.write("require_relative '../../spec_helper'\n\ncontext 'Security Groups on"\
         " #{vpc} tests', #{account}: true do\n\n")
       end
 
@@ -112,7 +112,7 @@ class AwsSpecGenerator
 
       File.open(target_file, 'w') do |f|
         f.write(
-          "require_relative '../spec_helper'\n\ncontext 'S3 buckets on"\
+          "require_relative '../../spec_helper'\n\ncontext 'S3 buckets on"\
           " #{bucket['Name']} tests', #{account}: true do\n\n"
         )
       end
@@ -137,7 +137,7 @@ class AwsSpecGenerator
       )
       File.open(target_file, 'w') do |f|
         f.write(
-          "require_relative '../spec_helper'\n\ncontext 'NACL "\
+          "require_relative '../../spec_helper'\n\ncontext 'NACL "\
           "on #{vpc} tests', #{account}: true do\n\n"
         )
       end
