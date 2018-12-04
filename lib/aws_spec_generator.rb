@@ -133,7 +133,7 @@ class AwsSpecGenerator
   def generate_nacl_tests(account)
     @vpc_list.each do |vpc|
       target_file = File.absolute_path(
-        @output_directory + "nacl_buckets_on_#{vpc}_tests_spec.rb"
+        @output_directory + "nacls_on_#{vpc}_tests_spec.rb"
       )
       File.open(target_file, 'w') do |f|
         f.write(
