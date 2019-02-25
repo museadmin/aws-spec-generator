@@ -9,8 +9,10 @@ require 'yaml'
 class AwsSpecGenerator
 
   def initialize(options = {})
-    ENV['AWS_DEFAULT_REGION'] = 'eu-west-2' # TODO remove when upgrading to 0.1.6 of auth
-    ENV.delete('AWS_PROFILE') # TODO remove when upgrading to 0.1.6 of auth
+
+    # ENV['AWS_DEFAULT_REGION'] = 'eu-west-2' if ENV['AWS_DEFAULT_REGION'].nil?
+    # TODO remove
+    # ENV.delete('AWS_PROFILE') # TODO remove when upgrading to 0.1.6 of auth
     @vpc_list = []
     @bucket_list = []
     @output_directory = options[:output_directory]
@@ -158,6 +160,9 @@ class AwsSpecGenerator
   def query_vpc_ids
     begin
       stdout, stderr, status = Open3.capture3('aws ec2 describe-vpcs')
+      # TODO remove
+      puts "STDOUT = #{stdout}"
+      puts "STDERR = #{stderr}"
     rescue StandardError
       raise('Error: ' + status + 'Failed to recover vpc list: (' + stderr + ')')
     end

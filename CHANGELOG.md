@@ -17,3 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.3] - 04-12-2018
 ### Changed 
 - relative path of spechelper require statement
+
+## [0.1.4] - 25-02-2019
+### Changed
+- debugging and tweaking for running in the cloud under an instance profile
