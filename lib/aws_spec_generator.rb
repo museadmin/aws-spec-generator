@@ -164,18 +164,10 @@ class AwsSpecGenerator
   def query_vpc_ids
     begin
       stdout, stderr = Open3.capture3('aws ec2 describe-vpcs')
-    rescue RuntimeError
-      puts "StandardError STDOUT = (#{stdout})"
-      puts "StandardError STDERR = (#{stderr})"
-      raise('Error: Failed to recover vpc list')
     rescue StandardError
-      puts "StandardError STDOUT = (#{stdout})"
-      puts "StandardError STDERR = (#{stderr})"
-      raise('Error: Failed to recover vpc list')
+      raise("Error: Failed to recover vpc list (#{stderr}) (#{stdout})")
     rescue TypeError
-      puts "TypeError STDOUT = (#{stdout})"
-      puts "TypeError STDERR = (#{stderr})"
-      raise('Error: Failed to recover vpc list: (' + stderr + ')')
+      raise("Error: Failed to recover vpc list: (#{stderr}) (#{stdout})")
     end
 
     JSON.parse(stdout)['Vpcs'].each do |vpc|
