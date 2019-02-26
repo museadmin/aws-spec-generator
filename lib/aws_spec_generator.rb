@@ -167,6 +167,7 @@ class AwsSpecGenerator
     rescue StandardError
       raise('Error: Failed to recover vpc list')
     rescue TypeError
+      puts "STDOUT = (#{stdout})"
       raise('Error: Failed to recover vpc list: (' + stderr + ')')
     end
 
