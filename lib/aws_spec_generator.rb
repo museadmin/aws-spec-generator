@@ -96,7 +96,7 @@ class AwsSpecGenerator
         stdout, stderr, status = Open3.capture3(
           "awspec generate security_group #{vpc}  >> #{target_file}"
         )
-        puts "CALLED SG GEN - (" + stdout + ')'
+        puts "CALLED SG GEN - (" + stdout + ') for VPC (' + vpc + ') Written to file (' + target_file + ')'
       rescue StandardError
         raise 'Error: (' + status + ') Failed to generate security_group tests (' + stderr + ')'
       end
