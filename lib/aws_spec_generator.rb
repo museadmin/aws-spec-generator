@@ -27,7 +27,7 @@ class AwsSpecGenerator
   def clear_dir(dir)
     Dir.glob("#{dir}*spec.rb").each do |fn|
       puts "Deleting file from previous run - #{fn}"
-      File.delete(fn) unless !File.directory?(fn)
+      File.delete("#{fn}") unless !File.directory?("#{fn}")
     end
   end
 
