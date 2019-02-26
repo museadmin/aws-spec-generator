@@ -52,13 +52,8 @@ class AwsSpecGenerator
         f.write("require_relative '../../spec_helper'\n\ncontext '#{vpc} tests', #{account}: true do\n\n")
       end
 
-      begin
-        stderr = Open3.capture3(
-            "awspec generate ec2 #{vpc}  >> \"#{target_file}\""
-        )
-      rescue StandardError
-        raise 'Failed to generate ec2 tests (' + stderr + ')'
-      end
+      stdout, stderr, status = Open3.capture3("awspec generate ec2 #{vpc}  >> \"#{target_file}\"")
+      raise 'Failed to generate ec2 tests (' + stderr + ')' unless status.success?
 
       File.open(target_file, 'a+') { |f|f.write("end\n") }
     end
@@ -75,13 +70,8 @@ class AwsSpecGenerator
         " #{vpc} tests', #{account}: true do\n\n")
       end
 
-      begin
-        stderr = Open3.capture3(
-            "awspec generate elb #{vpc}  >> \"#{target_file}\""
-        )
-      rescue StandardError
-        raise 'Failed to generate elb tests (' + stderr + ')'
-      end
+      stdout, stderr, status = Open3.capture3("awspec generate elb #{vpc}  >> \"#{target_file}\"")
+      raise 'Failed to generate elb tests (' + stderr + ')' unless status.success?
 
       File.open(target_file, 'a+') { |f|f.write("end\n") }
     end
@@ -98,13 +88,8 @@ class AwsSpecGenerator
         " #{vpc} tests', #{account}: true do\n\n")
       end
 
-      begin
-        stderr, status = Open3.capture3(
-            "awspec generate security_group #{vpc}  >> \"#{target_file}\""
-        )
-      rescue StandardError
-        raise 'Error: (' + status + ') Failed to generate security_group tests (' + stderr + ')'
-      end
+      stdout, stderr, status = Open3.capture3("awspec generate security_group #{vpc}  >> \"#{target_file}\"")
+      raise 'Error: (' + status + ') Failed to generate security_group tests (' + stderr + ')' unless status.success?
 
       File.open(target_file, 'a+') { |f|f.write("end\n") }
     end
@@ -149,13 +134,8 @@ class AwsSpecGenerator
         )
       end
 
-      begin
-        stderr = Open3.capture3(
-          "awspec generate network_acl #{vpc}  >> \"#{target_file}\""
-        )
-      rescue StandardError
-        raise 'Failed to generate nacl tests (' + stderr + ')'
-      end
+      stdout, stderr, status = Open3.capture3("awspec generate network_acl #{vpc}  >> \"#{target_file}\"")
+      raise 'Failed to generate nacl tests (' + stderr + ')' unless status.success?
 
       File.open(target_file, 'a+') { |f|f.write("end\n") }
     end
