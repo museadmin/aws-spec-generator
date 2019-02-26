@@ -163,9 +163,11 @@ class AwsSpecGenerator
   # retrieve the VPC names for this account
   def query_vpc_ids
     begin
-      stdout, stderr, status = Open3.capture3('aws ec2 describe-vpcs')
-    rescue StandardError, TypeError
-      raise('Error: ' + status + 'Failed to recover vpc list')
+      stdout, stderr = Open3.capture3('aws ec2 describe-vpcs')
+    rescue StandardError
+      raise('Error: Failed to recover vpc list')
+    rescue TypeError
+      raise('Error: Failed to recover vpc list: (' + stderr + ')')
     end
 
     JSON.parse(stdout)['Vpcs'].each do |vpc|
@@ -179,7 +181,7 @@ class AwsSpecGenerator
     begin
       stdout, stderr, status = Open3.capture3('aws s3api list-buckets')
     rescue StandardError
-      raise('Error: ' + status + 'Failed to recover vpc list: (' + stderr + ')')
+      raise('Error: ' + status + 'Failed to recover buckets list: (' + stderr + ')')
     end
 
     JSON.parse(stdout)['Buckets'].each do |bucket|
