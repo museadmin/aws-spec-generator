@@ -1,7 +1,7 @@
 module Aws
   module Spec
     module Generator
-      VERSION = '0.1.5.pre'.freeze
+      VERSION = '0.1.6'.freeze
     end
   end
 end
