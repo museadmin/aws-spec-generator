@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'awspec'
 require 'fileutils'
 require 'json'
 require 'yaml'
@@ -9,10 +8,6 @@ require 'yaml'
 class AwsSpecGenerator
 
   def initialize(options = {})
-
-    # ENV['AWS_DEFAULT_REGION'] = 'eu-west-2' if ENV['AWS_DEFAULT_REGION'].nil?
-    # TODO remove
-    # ENV.delete('AWS_PROFILE') # TODO remove when upgrading to 0.1.6 of auth
     @vpc_list = []
     @bucket_list = []
     @output_directory = options[:output_directory]
@@ -48,7 +43,7 @@ class AwsSpecGenerator
 
       begin
         stderr = Open3.capture3(
-            "awspec generate ec2 #{vpc}  >> #{target_file}"
+            "awspec generate ec2 #{vpc}  >> \"#{target_file}\""
         )
       rescue StandardError
         raise 'Failed to generate ec2 tests (' + stderr + ')'
@@ -71,7 +66,7 @@ class AwsSpecGenerator
 
       begin
         stderr = Open3.capture3(
-            "awspec generate elb #{vpc}  >> #{target_file}"
+            "awspec generate elb #{vpc}  >> \"#{target_file}\""
         )
       rescue StandardError
         raise 'Failed to generate elb tests (' + stderr + ')'
@@ -94,7 +89,7 @@ class AwsSpecGenerator
 
       begin
         stderr, status = Open3.capture3(
-          'awspec generate security_group ' + vpc + '  >> "' + target_file +'"'
+            "awspec generate security_group #{vpc}  >> \"#{target_file}\""
         )
       rescue StandardError
         raise 'Error: (' + status + ') Failed to generate security_group tests (' + stderr + ')'
@@ -120,7 +115,7 @@ class AwsSpecGenerator
 
       begin
         stderr, status = Open3.capture3(
-          "awspec generate s3 #{bucket['Name']}  >> #{target_file}"
+            "awspec generate s3 #{bucket['Name']} >> \"#{target_file}\""
         )
       rescue StandardError
         raise 'Error: (' + status + ')Failed to generate bucket tests (' + stderr + ')'
@@ -145,7 +140,7 @@ class AwsSpecGenerator
 
       begin
         stderr = Open3.capture3(
-          "awspec generate network_acl #{vpc}  >> #{target_file}"
+          "awspec generate network_acl #{vpc}  >> \"#{target_file}\""
         )
       rescue StandardError
         raise 'Failed to generate nacl tests (' + stderr + ')'
