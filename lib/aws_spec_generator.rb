@@ -25,7 +25,7 @@ class AwsSpecGenerator
 
   # Clear out the last run
   def clear_output_dir(dir)
-    Dir.glob("#{dir}*spec.rb").foreach do |f|
+    Dir.glob("#{dir}*spec.rb").each do |f|
       puts "FOUND FILES = #{f}"
       # File.delete(fn) unless !File.directory?(fn)
     end

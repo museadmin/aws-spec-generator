@@ -22,7 +22,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - debugging and tweaking for running in the cloud under an instance profile
 
-## [0.1.5] - 26-02-2019
+## [0.1.5 - 0.1.13] - 26-02-2019
 ### Changed
-- Fix for stray system call failing in sg generate step
-- Debug statements
+- Exploratory debugging while trying to run in an AWS instance
+
+## [0.2.0] 26-02-2019
+- Remove stray system call in sg generate step
+- Add clear down of output directory
+- Fix for paths with spaces in them
