@@ -28,7 +28,7 @@ class AwsSpecGenerator
     Dir.glob("#{dir}*spec.rb").each do |fn|
       fn = File.absolute_path(fn)
       puts "Deleting file from previous run - #{fn}"
-      File.delete("#{fn}") unless !File.directory?("#{fn}")
+      File.delete("#{fn}") unless File.directory?("#{fn}")
     end
   end
 
