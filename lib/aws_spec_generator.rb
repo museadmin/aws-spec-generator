@@ -93,11 +93,9 @@ class AwsSpecGenerator
       end
 
       begin
-        stdout, stderr, status = Open3.capture3(
-          # 'awspec generate security_group ' + vpc + '  >> "#{target_file}"'
-          'awspec generate security_group ' + vpc
+        stderr, status = Open3.capture3(
+          'awspec generate security_group ' + vpc + '  >> "' + target_file +'"'
         )
-        puts "CALLED SG GEN - (" + stdout + ') for VPC (' + vpc + ') Written to file (' + target_file + ')'
       rescue StandardError
         raise 'Error: (' + status + ') Failed to generate security_group tests (' + stderr + ')'
       end
@@ -161,9 +159,6 @@ class AwsSpecGenerator
   def query_vpc_ids
     begin
       stdout, stderr, status = Open3.capture3('aws ec2 describe-vpcs')
-      # TODO remove
-      puts "STDOUT = #{stdout}"
-      puts "STDERR = #{stderr}"
     rescue StandardError
       raise('Error: ' + status + 'Failed to recover vpc list: (' + stderr + ')')
     end
