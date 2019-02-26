@@ -93,14 +93,14 @@ class AwsSpecGenerator
       end
 
       begin
-        stderr = Open3.capture3(
+        stdout, stderr, status = Open3.capture3(
           "awspec generate security_group #{vpc}  >> #{target_file}"
         )
+        puts "CALLED SG GEN - (" + stdout + ')'
       rescue StandardError
-        raise 'Failed to generate security_group tests (' + stderr + ')'
+        raise 'Error: (' + status + ') Failed to generate security_group tests (' + stderr + ')'
       end
 
-      system("awspec generate security_group #{vpc}  >> #{target_file}")
       File.open(target_file, 'a+') { |f|f.write("end\n") }
     end
   end
@@ -120,11 +120,11 @@ class AwsSpecGenerator
       end
 
       begin
-        stderr = Open3.capture3(
+        stderr, status = Open3.capture3(
           "awspec generate s3 #{bucket['Name']}  >> #{target_file}"
         )
       rescue StandardError
-        raise 'Failed to generate bucket tests (' + stderr + ')'
+        raise 'Error: (' + status + ')Failed to generate bucket tests (' + stderr + ')'
       end
 
       File.open(target_file, 'a+') { |f|f.write("end\n") }

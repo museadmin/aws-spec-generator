@@ -21,3 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.4] - 25-02-2019
 ### Changed
 - debugging and tweaking for running in the cloud under an instance profile
+
+## [0.1.5] - 26-02-2019
+### Changed
+- Fix for stray system call failing in sg generate step
+- Debug statements
