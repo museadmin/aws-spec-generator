@@ -18,8 +18,17 @@ class AwsSpecGenerator
     end
     FileUtils.mkdir_p @output_directory
     @output_directory += File::SEPARATOR
+    clear_output_dir(@output_directory)
     query_vpc_ids
     query_bucket_list
+  end
+
+  # Clear out the last run
+  def clear_output_dir(dir)
+    Dir.glob("#{dir}*spec.rb").foreach do |f|
+      puts "FOUND FILES = #{f}"
+      # File.delete(fn) unless !File.directory?(fn)
+    end
   end
 
   # Generate tests for all accounts
