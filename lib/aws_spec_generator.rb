@@ -72,7 +72,7 @@ class AwsSpecGenerator
         " #{vpc} tests', #{account}: true do\n\n")
       end
 
-      stdout, stderr, status = Open3.capture3("HTTP_PROXY='fwdpxy.con-nonprod.nonprod.aws.ds.cloud:3128' awspec generate elb #{vpc}  >> \"#{target_file}\"")
+      stdout, stderr, status = Open3.capture3("awspec generate elb #{vpc}  >> \"#{target_file}\"")
       raise 'Failed to generate elb tests (' + stderr + ')' unless status.success?
 
       File.open(target_file, 'a+') { |f|f.write("end\n") }
