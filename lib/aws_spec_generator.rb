@@ -34,7 +34,7 @@ class AwsSpecGenerator
   end
 
   # Generate tests for all accounts
-  def generate_all(account)
+  def generate_all_tests(account)
     generate_ec2_tests(account)
     generate_sg_tests(account)
     generate_s3_tests(account)

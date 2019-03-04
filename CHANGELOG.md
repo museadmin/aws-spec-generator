@@ -26,7 +26,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Exploratory debugging while trying to run in an AWS instance
 
-## [0.2.0] 26-02-2019
+## [0.2.0 - 0.2.6] 26-02-2019
 - Remove stray system call in sg generate step
 - Add clear down of output directory
 - Fix for paths with spaces in them
+- renamed generate_all method for consistency
