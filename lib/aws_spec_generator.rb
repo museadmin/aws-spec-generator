@@ -18,8 +18,8 @@ class AwsSpecGenerator
       )
     end
     FileUtils.mkdir_p @output_directory
-    clear_dir(@output_directory)
     @output_directory += File::SEPARATOR
+    clear_dir(@output_directory)
     query_vpc_ids
     query_bucket_list
   end

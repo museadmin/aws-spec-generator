@@ -31,3 +31,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add clear down of output directory
 - Fix for paths with spaces in them
 - renamed generate_all method for consistency
+
+## [0.2.7] 14-06-2019
+- Fixed failing clear down of generated tests directory
