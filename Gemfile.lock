@@ -713,7 +713,7 @@ GEM
     dry-inflector (0.1.2)
     ipaddress (0.8.3)
     jmespath (1.4.0)
-    rake (10.5.0)
+    rake (13.0.1)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -744,7 +744,7 @@ DEPENDENCIES
   awsecrets (~> 1.14.0)
   awspec
   bundler
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec (~> 3.0)
 
 BUNDLED WITH
