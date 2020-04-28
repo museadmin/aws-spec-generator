@@ -1,4 +1,6 @@
-require "aws/spec/generator/version"
+# frozen_string_literal: true
+
+require 'aws/spec/generator/version'
 
 module Aws
   module Spec

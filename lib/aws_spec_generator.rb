@@ -7,7 +7,6 @@ require 'yaml'
 
 # Parent class for individual awspec tests generators
 class AwsSpecGenerator
-
   def initialize(options = {})
     @vpc_list = []
     @bucket_list = []
@@ -44,7 +43,7 @@ class AwsSpecGenerator
 
   # Generate the EC2 tests
   def generate_ec2_tests(account)
-    puts "Generating EC2 tests"
+    puts 'Generating EC2 tests'
     @vpc_list.each do |vpc|
       target_file = File.absolute_path(
         @output_directory + "ec2_on_#{vpc}_tests_spec.rb"
@@ -62,7 +61,7 @@ class AwsSpecGenerator
 
   # Generate the ELB Tests
   def generate_elb_tests(account)
-    puts "Generating ELB tests"
+    puts 'Generating ELB tests'
     @vpc_list.each do |vpc|
       target_file = File.absolute_path(
         @output_directory + "elbs_on_#{vpc}_tests_spec.rb"
@@ -81,7 +80,7 @@ class AwsSpecGenerator
 
   # Generate the SG tests
   def generate_sg_tests(account)
-    puts "Generating SG tests"
+    puts 'Generating SG tests'
     @vpc_list.each do |vpc|
       target_file = File.absolute_path(
         @output_directory + "security_groups_on_#{vpc}_tests_spec.rb"
@@ -100,7 +99,7 @@ class AwsSpecGenerator
 
   # Generate S3 Bucket tests
   def generate_s3_tests(account)
-    puts "Generating S3 tests"
+    puts 'Generating S3 tests'
     @bucket_list.each do |bucket|
       target_file = File.absolute_path(@output_directory +
                     "s3_buckets_on_#{bucket['Name']}_tests_spec.rb")
@@ -126,7 +125,7 @@ class AwsSpecGenerator
 
   # Generate NACL tests
   def generate_nacl_tests(account)
-    puts "Generating NACL tests"
+    puts 'Generating NACL tests'
     @vpc_list.each do |vpc|
       target_file = File.absolute_path(
         @output_directory + "nacls_on_#{vpc}_tests_spec.rb"
